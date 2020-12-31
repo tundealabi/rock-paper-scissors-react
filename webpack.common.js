@@ -16,6 +16,17 @@ module.exports = {
                         {'plugins':['@babel/plugin-proposal-class-properties']}]
                 }
             }
+            },
+            {
+                test: /\.(svg|png|jpe?g|gif)$/, use:
+                    {
+                        loader: 'file-loader', //Added file-loader to handle the svg,png,jpg,gif files from our images
+                        options: {
+                            name: '[name]-[hash].[ext]', //Also configured it to add a hash to their filenames
+                            outputPath: 'images', //Configured file-loader to add our images to an imgs directory in dist
+                            publicPath: 'images/'
+                        }
+                    }
             }
         ]
     }
