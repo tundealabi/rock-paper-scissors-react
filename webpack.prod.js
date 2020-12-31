@@ -8,8 +8,7 @@ const commonConfig = require('./webpack.common');
 module.exports = merge(commonConfig, {
     mode: 'production',
     plugins:[new CleanWebpackPlugin(), new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].bundle.css',
-        path: __dirname + "/dist/css"
+        filename: '[name].[contenthash].bundle.css'
     })],
     module: {
         rules: [
@@ -17,7 +16,10 @@ module.exports = merge(commonConfig, {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader
+                        loader: MiniCssExtractPlugin.loader,
+                        options:{
+                            publicPath: '/dist/css/'
+                        }
                     },
                     {
                         loader: 'css-loader',

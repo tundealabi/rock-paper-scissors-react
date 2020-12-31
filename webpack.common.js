@@ -2,7 +2,7 @@ module.exports = {
     entry: '/',
     output: {
         filename: '[name]-[contenthash].bundle.js',
-        path:__dirname + "/dist/js"
+        path:__dirname + "/dist"
     },
     module: {
         rules: [
